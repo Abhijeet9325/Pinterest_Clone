@@ -1,0 +1,49 @@
+var express = require('express');
+var router = express.Router();
+const userModel = require("./users")
+const postModel = require("./post");
+const passport = require('passport');
+const LocalStrategy = require("passport-local").Strategy;
+passport.use(new LocalStrategy(userModel.authenticate()));
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
+
+/* GET home page. */
+router.get('/', function (req, res, next) {
+  res.render('index');
+});
+router.get('/login', function (req, res, next) {
+  res.render('login');
+});
+router.get('/profile', isLoggedIn, function (req, res, next) {
+  res.send("profile")
+});
+router.post('/register', function (req, res) {
+  const { fullname, username, email } = req.body;
+  const userData = new userModel({ fullname, username, email });
+
+  userModel.register(userData, req.body.password)
+    .then(function () {
+      passport.authenticate("local")(req, res, function () {
+        res.redirect("/profile")
+      })
+    })
+});
+router.post('/login', passport.authenticate("local", {
+  successRedirect: "/profile",
+  failureRedirect: "/"
+}), function (req, res) {
+
+});
+router.get("/logout", function (req, res) {
+  req.logout(function (err) {
+    if (err) { return next(err); }
+    res.redirect("/")
+  })
+});
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/")
+}
+
+module.exports = router;
