@@ -1,108 +1,162 @@
-# Pinterest Clone (Backend Learning Project)
+📌 Pinterest Clone (Backend Learning Project)
 
-This project is a **Pinterest Clone** built mainly to **learn backend development and authentication**.  
-The project is being developed step-by-step.
+This project is a Pinterest Clone built primarily to learn backend development and authentication concepts.
+The application is being developed incrementally, with a strong focus on real-world backend workflows rather than UI perfection.
 
-Currently, the **Pinterest-style header** is completed and **Register, Sign in, and Logout functionalities are implemented using backend authentication**.
+Currently, the project includes a Pinterest-style header, authentication system, profile handling, and post creation with image uploads.
 
----
+🎯 Project Purpose
 
-## 🎯 Project Purpose
+The main goals of this project are to:
 
-The main purpose of this project is to:
+Learn backend development using Node.js and Express
 
-- Learn **backend development using Node.js & Express**
-- Implement **authentication (Register, Sign in, Logout)**
-- Understand how frontend buttons and forms connect to backend routes
-- Practice real-world authentication flow
-- Build a full-stack project incrementally
+Implement authentication flows (Register, Login, Logout)
 
-> UI is simple by design.  
-> Backend logic and authentication are the primary focus.
+Understand how frontend forms & buttons interact with backend routes
 
----
+Work with sessions, middleware, and protected routes
 
-## 🚧 Current Status
+Handle image uploads and database relations
 
-### ✅ Completed
-- [x] Pinterest-style Header UI
-- [x] Login Page UI
-- [x] Signup Page UI
-- [x] User Registration (backend)
-- [x] User Sign in (backend)
-- [x] User Logout (backend)
-- [x] Authentication routes connected (`/register`, `/login`, `/logout`)
-- [x] GitHub repository setup
+Build confidence in developing a real-world full-stack application
 
-### 🔄 In Progress / Coming Soon
-- [ ] Password hashing improvements
-- [ ] Session persistence & optimization
-- [ ] Protected routes middleware
-- [ ] Pinterest-style feed (pins)
-- [ ] Create pin feature
-- [ ] User profile page
-- [ ] Authorization (roles/permissions)
+UI is intentionally kept simple.
+Backend logic, authentication, and data flow are the primary focus.
 
-> This checklist will be updated as new features are added.
+🚧 Current Status
+✅ Completed Features
 
----
+Pinterest-style header UI
 
-## 🔐 Authentication (Implemented)
+User registration (Signup)
 
-Authentication is implemented using backend routes:
+User login (Signin)
 
-- **Register**: User can create an account using the signup form
-- **Sign in**: User can log in using registered credentials
-- **Logout**: User session is destroyed securely
-- Forms and buttons are connected to backend POST/GET routes
-- Backend handles user validation and session management
+User logout
 
-Further improvements like stronger security and protected routes will be added.
+Session-based authentication using Passport.js
 
----
+Logged-in user details rendered dynamically on profile page
 
-## 🛠️ Tech Stack
+Profile image upload using Multer
 
-### Frontend
-- HTML5
-- CSS3
-- Font Awesome
+Create post feature with image upload
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Passport.js (Local Strategy)
-- Express-session
+Posts linked to authenticated users
 
----
+Display user posts (pins) on profile/homepage
 
-## 📁 Project Structure (Evolving)
+Protected routes using authentication middleware
 
+GitHub repository setup with meaningful commits
+
+🔄 In Progress / Coming Soon
+
+Edit profile details
+
+Delete post functionality
+
+Improved authorization checks
+
+Pinterest-style masonry feed
+
+Save / Like pins
+
+Better error handling & validation
+
+UI refinements
+
+Deployment (Render / Railway / similar)
+
+This checklist will be updated as new features are added.
+
+🔐 Authentication & Profile Management
+
+User authentication implemented using Passport.js (Local Strategy)
+
+Session-based login system
+
+Logged-in user name and username are automatically shown on profile
+
+Secure logout functionality
+
+Profile image upload supported using Multer
+
+Uploaded images are stored on the server and rendered dynamically
+
+Routes are protected using authentication middleware
+
+📌 Posts (Pins)
+
+Authenticated users can create new posts
+
+Each post includes:
+
+Image upload
+
+Title
+
+Description
+
+Posts are stored in MongoDB
+
+Each post is associated with the logged-in user
+
+User posts are populated and displayed dynamically
+
+🛠️ Tech Stack
+Frontend
+
+HTML5
+
+CSS3
+
+EJS (Templating)
+
+Font Awesome
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB
+
+Mongoose
+
+Passport.js (Local Strategy)
+
+Express-session
+
+Multer (Image Uploads)
+
+📁 Project Structure (Evolving)
 pinterest-clone/
 │
 ├── bin/
 ├── node_modules/
 │
 ├── public/
-│ ├── images/
-│ ├── javascripts/
-│ └── stylesheets/
-│ ├── login.css
-│ ├── signup.css
-│ └── style.css
+│   ├── images/
+│   │   └── uploads/
+│   ├── javascripts/
+│   └── stylesheets/
+│       ├── login.css
+│       ├── signup.css
+│       └── style.css
 │
 ├── routes/
-│ ├── index.js
-│ ├── users.js
-│ └── post.js
+│   ├── index.js
+│   ├── users.js
+│   └── post.js
 │
 ├── views/
-│ ├── error.ejs
-│ ├── index.ejs
-│ ├── login.ejs
-│ └── signup.ejs
+│   ├── error.ejs
+│   ├── homepage.ejs
+│   ├── login.ejs
+│   └── signup.ejs
 │
 ├── app.js
 ├── package.json
