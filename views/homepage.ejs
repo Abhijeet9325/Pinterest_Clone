@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Pinterest Clone</title>
+</head>
+<link rel="stylesheet" href="/stylesheets/homepage.css">
+
+<body>
+
+    <!-- Navbar -->
+    <header class="pinterest-header">
+        <!-- LEFT -->
+        <div class="left">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Pinterest">
+                <span class="logo-name">Pinterest</span>
+            </div>
+            <a href="#" class="explore">Explore</a>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search for easy dinners, fashion, etc.">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <a href="#">About</a>
+            <a href="#">Businesses</a>
+            <a href="#">Create</a>
+            <a href="#">News</a>
+            <a class="logout" href="/logout">Logout</a>
+
+            <% if(nav===true){ %><a href="/login" class="login">Log in</a>
+                <a href="/signup" class="signup">Sign up</a>
+                <% } %>
+        </div>
+    </header>
+
+    <!-- PROFILE SECTION -->
+    <div class="profile-page">
+
+        <div class="profile-center">
+            <div class="avatar">
+                <img src="/images/uploads/<%= user.profileImage || 'default.png' %>" alt="profile" />
+
+                <button class="edit-icon">✎</button>
+            </div>
+
+            <h2><%= user.fullname %></h2>
+            <p class="username">@<%= user.username %></p>
+
+            <button class="edit-btn">Edit</button>
+            <a href="/add" class="add-btn">Add New Post</a>
+        </div>
+
+    </div>
+    <!-- FILE UPLOAD -->
+    <form id="uploadform" method="post" enctype="multipart/form-data" hidden action="/fileupload">
+        <input type="file" id="imageInput" name="image">
+    </form>
+
+    <!-- PINS FOOTER -->
+    <div class="pins-footer">
+        <% user.posts.forEach(function(post){ %>
+            <div class="pins-card">
+                <img src="/images/uploads/<%= post.image %>" alt="<%= post.title %>">
+                <h4><%= post.title %></h4>
+                <p>@<%= user.username %></p>
+            </div>
+        <% }) %>
+    </div>
+    <script>
+        document.querySelector(".edit-icon").addEventListener("click", () => {
+            document.querySelector("#uploadform input").click();
+        })
+        document.querySelector("#uploadform input").addEventListener("change", () => {
+            document.querySelector("#uploadform").submit();
+        })
+    </script>
+
+</body>
+
+</html>

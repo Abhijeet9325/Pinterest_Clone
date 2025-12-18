@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Post</title>
+  <link rel="stylesheet" href="/stylesheets/createpost.css">
+</head>
+<body>
+  <div class="create-page">
+    <h2 class="heading">Create a new post</h2>
+    <form action="/createpost"
+      method="post"
+      enctype="multipart/form-data"
+      class="post-form">
+    
+      <!-- IMAGE -->
+      <input type="file" name="image" required>
+
+      <!-- TITLE -->
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        required
+      >
+
+      <!-- DESCRIPTION -->
+      <textarea
+        name="description"
+        placeholder="Description"
+        required
+      ></textarea>
+
+      <!-- BUTTON -->
+      <button type="submit" class="create-btn">
+        Create Post
+      </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

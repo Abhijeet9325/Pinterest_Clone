@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+/* PAGE */
+.create-page {
+  padding: 40px 50px;
+}
+
+/* HEADING */
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* FORM */
+.post-form {
+  width: 420px;
+}
+
+/* FILE INPUT */
+.post-form input[type="file"] {
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+/* INPUTS */
+.post-form input[type="text"],
+.post-form textarea {
+  width: 100%;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+/* TEXTAREA */
+.post-form textarea {
+  height: 140px;
+  resize: none;
+}
+
+/* BUTTON */
+.create-btn {
+  width: 100%;
+  background: #e60023;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

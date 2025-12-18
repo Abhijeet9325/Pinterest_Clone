@@ -9,7 +9,6 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
   <div class="container">
     <div class="content">
@@ -22,6 +21,9 @@
       />
 
       <p class="header">Sign in to see more</p>
+      <% if(error.length > 0){
+        %> <p class="error"><%=error%></p><%
+      } %>
 
       <!-- SIGN IN FORM -->
       <form action="/login" method="post">

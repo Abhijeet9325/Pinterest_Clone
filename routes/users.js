@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
       trim: true,
     },
-    
+
     fullname: {
       type: String,
       required: true,
@@ -24,9 +24,11 @@ const userSchema = new mongoose.Schema(
       type: String, // URL of profile picture
       default: "",
     },
-    post: [{
+    profileImage:String
+    ,
+    posts: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref : "Post"
+      ref: "Post"
     }],
   },
   { timestamps: true }
